@@ -13,7 +13,7 @@
         },
     ]
 
-    const focusOnAddTaskInput = ()=> {
+    const focusOnAddTaskInput = () => {
         const newTaskInput = document.querySelector(".js-newTask");
         newTaskInput.value = "";
         newTaskInput.focus();
@@ -73,15 +73,19 @@
 
         for (const task of tasks) {
             htmlString += `
-            <li class="list__item ${task.done ? " list__item--done" : ""}">
-            <button class="list__button--done js-done">
+            <div class="list__itemRow">
+            <button class="list__button js-done">
+            ${task.done ? "&#10004;" : ""}
             </button>
+            <li class="list__itemContent ${task.done ? " list__itemContent--done" : ""}">
             ${task.content}
-            <button class="list__button--remove js-remove">
-            </button>
             </li>
+            <button class="list__button list__button--remove js-remove">&#128465;
+            </button>
+            </div>
             `;
         }
+        
         document.querySelector(".js-tasks").innerHTML = htmlString;
 
 

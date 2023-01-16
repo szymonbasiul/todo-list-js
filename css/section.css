@@ -1,13 +1,14 @@
-.form {
+.section {
+    margin: 10px 0;
     background-color: white;
-    margin-bottom: 10px;
 }
 
-.form__header {
+.section__header {
     padding: 20px;
     border-bottom: 1px solid rgba(128, 128, 128, 0.25);
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bolder;
+    margin: 0;
 }
 
 .form__input {
@@ -17,10 +18,65 @@
     padding: 20px;
 }
 
+.newTask {
+    width: 100%;
+    margin: 0 10px;
+    border: 1px solid rgba(128, 128, 128, 0.25);
+    padding: 6px;
+}
+
+.newTaskButton {
+    margin: 0 10px;
+    width: 200px;
+    padding: 6px;
+    border: none;
+    background-color: rgb(16, 153, 153);
+    color: white;
+}
+
+.list__item {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    list-style: none;
+}
+
+.list__itemRow {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+}
+
+.list__itemContent {
+    width: 100%;
+    margin: 10px;
+}
+
+.list__itemContent--done {
+    text-decoration: line-through;
+}
+
+.list__button {
+    border: none;
+    width: 30px;
+    height: 30px;
+    background-color: green;
+    color: white;
+}
+
+.list__button--remove {
+    background-color: red;
+}
+
 @media (max-width: 768px) {
     .form__input {
         flex-wrap: wrap;
-        background-color: white;
     }
 
     .newTask {
@@ -31,60 +87,4 @@
     .newTaskButton {
         flex-basis: 100%;
     }
-}
-
-.newTask {
-    width: 100%;
-    margin: 0 10px;
-    border: 1px solid rgba(128, 128, 128, 0.25);
-    padding: 6px;
-    
-}
-
-.newTaskButton {
-    margin: 0 10px;
-    width: 200px;
-    padding: 6px;
-    border: none;
-    background-color: rgb(16, 153, 153);
-    color: white;
-    
-}
-
-.list {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-}
-
-.list__header {
-    padding: 20px;
-    border-bottom: 1px solid rgba(128, 128, 128, 0.25);
-    font-size: 18px;
-    font-weight: bolder;
-}
-
-.list__item {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    margin: 0;
-    padding: 20px;
-    list-style: none;
-    border-bottom: 1px solid rgba(128, 128, 128, 0.25);
-}
-
-.list__item--done {
-    text-decoration: line-through;
-}
-
-.list__button--done {
-    background-color: green;
-}
-
-.list__button-remove {
-    width:100%;
-    height: 100%;
-    background-color: red;
-    border: none;
 }
