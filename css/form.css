@@ -1,9 +1,90 @@
+.form {
+    background-color: white;
+    margin-bottom: 10px;
+}
 
+.form__header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.form__input {
+    display: flex;
+    justify-content: space-between;
+    flex-basis: 100%;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .form__input {
+        flex-wrap: wrap;
+        background-color: white;
+    }
+
+    .newTask {
+        margin-bottom: 20px;
+        flex-basis: 100%;
+    }
+
+    .newTaskButton {
+        flex-basis: 100%;
+    }
+}
+
+.newTask {
+    width: 100%;
+    margin: 0 10px;
+    border: 1px solid rgba(128, 128, 128, 0.25);
+    padding: 6px;
+    
+}
+
+.newTaskButton {
+    margin: 0 10px;
+    width: 200px;
+    padding: 6px;
+    border: none;
+    background-color: rgb(16, 153, 153);
+    color: white;
+    
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.list__header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+    font-size: 18px;
+    font-weight: bolder;
+}
 
 .list__item {
-   list-style: none; 
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    list-style: none;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.25);
 }
 
 .list__item--done {
     text-decoration: line-through;
+}
+
+.list__button--done {
+    background-color: green;
+}
+
+.list__button-remove {
+    width:100%;
+    height: 100%;
+    background-color: red;
+    border: none;
 }

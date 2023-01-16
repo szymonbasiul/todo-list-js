@@ -1,5 +1,7 @@
 {
 
+
+
     const tasks = [
         {
             content: "nagrać lekcję",
@@ -7,20 +9,26 @@
         },
         {
             content: "zjeść obiad",
-            done: true,
+            done: false,
         },
     ]
 
+    const focusOnAddTaskInput = ()=> {
+        const newTaskInput = document.querySelector(".js-newTask");
+        newTaskInput.value = "";
+        newTaskInput.focus();
+    }
+
     const removeTask = (taskIndex) => {
         tasks.splice(taskIndex, 1);
-        render();
+        renderListItems();
     }
 
     const addNewTask = (newTaskContent) => {
         tasks.push({
             content: newTaskContent,
         });
-        render();
+        renderListItems();
     }
 
     const onFormSubmit = (event) => {
@@ -33,11 +41,12 @@
         }
 
         addNewTask(newTaskContent);
+        focusOnAddTaskInput();
     };
 
     const toggleDoneTask = (taskIndex) => {
         tasks[taskIndex].done = !tasks[taskIndex].done;
-        render();
+        renderListItems();
     }
 
     const bindEvents = () => {
@@ -58,32 +67,40 @@
         })
     }
 
-    const render = () => {
+    const renderListItems = () => {
+
         let htmlString = "";
 
         for (const task of tasks) {
             htmlString += `
             <li class="list__item ${task.done ? " list__item--done" : ""}">
-            <button class="js-done">Done</button>
+            <button class="list__button--done js-done">
+            </button>
             ${task.content}
-            <button class="js-remove">Delete</button>
+            <button class="list__button--remove js-remove">
+            </button>
             </li>
             `;
         }
         document.querySelector(".js-tasks").innerHTML = htmlString;
+
+
 
         bindEvents();
     };
 
 
 
+
     const init = () => {
-        render();
+        renderListItems();
 
         const form = document.querySelector(".js-form");
+        form.addEventListener("submit", onFormSubmit);
 
-        form.addEventListener("submit", onFormSubmit)
     };
 
     init();
+
+
 }
