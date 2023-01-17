@@ -1,6 +1,6 @@
 # Szymon Basiul - todo-list
 
-<img src="" width="360px">
+<img src="https://github.com/szymonbasiul/todo-list-js/blob/master/images/task_screen.jpg" width="360px">
 
 
 ## Demo
