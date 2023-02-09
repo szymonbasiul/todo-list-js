@@ -2,16 +2,21 @@
 
 
 
-    const tasks = [
+    let tasks = [];
+    let hideDoneTasks = false;
+    let buttons = [
         {
-            content: "nagrać lekcję",
-            done: false,
+            content: "Ukryj wszystkie"
         },
         {
-            content: "zjeść obiad",
-            done: false,
+            content: "Pokaż wszystkie"
         },
-    ]
+        {
+            content: "Ukończ wszystkie"
+        },
+
+    ];
+
 
     const focusOnAddTaskInput = () => {
         const newTaskInput = document.querySelector(".js-newTask");
@@ -20,15 +25,19 @@
     }
 
     const removeTask = (taskIndex) => {
-        tasks.splice(taskIndex, 1);
-        renderListItems();
+        tasks = [
+            ...tasks.slice(0 ,taskIndex),
+            ...tasks.slice(taskIndex + 1),
+        ];
+        render();
     }
 
     const addNewTask = (newTaskContent) => {
-        tasks.push({
-            content: newTaskContent,
-        });
-        renderListItems();
+        tasks = [
+            ...tasks,
+            { content: newTaskContent },
+        ];
+        render();
     }
 
     const onFormSubmit = (event) => {
@@ -45,8 +54,15 @@
     };
 
     const toggleDoneTask = (taskIndex) => {
-        tasks[taskIndex].done = !tasks[taskIndex].done;
-        renderListItems();
+        tasks = [
+            ...tasks.slice(0, taskIndex),
+            {
+                ...tasks[taskIndex],
+                done: !tasks[taskIndex].done
+            },
+            ...tasks.slice(taskIndex + 1),
+        ]; 
+        render();
     }
 
     const bindEvents = () => {
@@ -65,10 +81,15 @@
                 toggleDoneTask(index);
             })
         })
-    }
+    };
 
-    const renderListItems = () => {
+    bindButtonsEvents = () => {
+        const hideDoneTasks = document.querySelector(".js-hide");
 
+        const toggleAllTasks = document.querySelector(".js-toggle");
+    };
+
+    const renderTasks = () => {
         let htmlString = "";
 
         for (const task of tasks) {
@@ -87,17 +108,36 @@
         }
         
         document.querySelector(".js-tasks").innerHTML = htmlString;
+    }
 
+    const renderButtons = () => {
+        let htmlString = "";
 
+        for (const button of buttons) {
+            htmlString += `
+            <div class="button__itemRow">
+            <button class="button js-hide"> ${button.content} </button>
+            </div>
+            `;
+        }
+
+        document.querySelector(".js-buttons").innerHTML = htmlString;
+    }
+
+    const render = () => {
+
+        renderTasks();
+        renderButtons();
 
         bindEvents();
+        bindButtonsEvents();
     };
 
 
 
 
     const init = () => {
-        renderListItems();
+        render();
 
         const form = document.querySelector(".js-form");
         form.addEventListener("submit", onFormSubmit);

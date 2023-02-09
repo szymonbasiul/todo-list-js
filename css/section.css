@@ -4,11 +4,30 @@
 }
 
 .section__header {
+    display: flex;
+    justify-content: space-between;
     padding: 20px;
-    border-bottom: 1px solid rgba(128, 128, 128, 0.25);
     font-size: 22px;
     font-weight: bolder;
     margin: 0;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+}
+
+.section__buttons {
+    display: flex;
+    font-size: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 0;
+}
+
+.button1 {
+    color: rgb(12, 117, 117);
+}
+
+.button2 {
+    color: rgb(12, 117, 117);
 }
 
 .form__input {
