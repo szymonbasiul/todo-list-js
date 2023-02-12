@@ -22,12 +22,29 @@
     margin: 0;
 }
 
-.button1 {
+.button {
     color: rgb(12, 117, 117);
+    border: none;
+    background: none;
 }
 
-.button2 {
-    color: rgb(12, 117, 117);
+.button:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .section__header {
+        text-align: center;
+    }
+
+    .section__buttons {
+        justify-content: center;
+    }
+
+    .button {
+        align-self: center;
+        flex-basis: 100%;
+    }
 }
 
 .form__input {
@@ -42,10 +59,11 @@
     margin: 0 10px;
     border: 1px solid rgba(128, 128, 128, 0.25);
     padding: 6px;
-   
+
 }
 
 .newTaskButton {
+    cursor: pointer;
     margin: 0 10px;
     width: 200px;
     padding: 6px;
@@ -74,6 +92,7 @@
     padding: 20px;
     list-style: none;
 }
+
 
 .list__itemRow {
     display: flex;
@@ -123,6 +142,37 @@
 .list__button--remove:active {
     background-color: rgba(211, 12, 12, 0.752);
     transform: translateY(2px);
+}
+
+@media (max-width: 768px) {
+    .list__button {
+        border: none;
+        background-color: green;
+        color: white;
+    }
+
+    .list__button:hover {
+        background-color: rgba(11, 138, 11, 0.8);
+    }
+
+    .list__button:active {
+        background-color: rgba(11, 138, 11, 0.8);
+        transform: translateY(2px);
+    }
+
+    .list__button--remove {
+        background-color: red;
+        transition: 0.5s;
+    }
+
+    .list__button--remove:hover {
+        background-color: rgba(211, 12, 12, 0.752);
+    }
+
+    .list__button--remove:active {
+        background-color: rgba(211, 12, 12, 0.752);
+        transform: translateY(2px);
+    }
 }
 
 @media (max-width: 768px) {
