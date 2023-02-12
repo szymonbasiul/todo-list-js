@@ -22,6 +22,10 @@
     margin: 0;
 }
 
+.button__itemRow {
+    display: flex;
+}
+
 .button {
     color: rgb(12, 117, 117);
     border: none;
@@ -30,15 +34,21 @@
 
 .button:hover {
     cursor: pointer;
+    color: rgb(16, 153, 153);
 }
 
 @media (max-width: 768px) {
     .section__header {
-        text-align: center;
+        flex-direction: column;
     }
 
     .section__buttons {
         justify-content: center;
+        flex-direction: column;
+    }
+
+    .button__itemRow {
+        margin-top: 20px;
     }
 
     .button {

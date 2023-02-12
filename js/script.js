@@ -1,8 +1,10 @@
 {
   let tasks = [];
+
   let hideDoneTasks = true;
-  let showAllTasks = false;
-  let toggleAllTasks = false;
+  // let showAllTasks = false;
+  // let toggleAllTasks = false;
+
   let buttons = [
     {
       content: "Ukryj wszystkie",
@@ -50,6 +52,10 @@
     focusOnAddTaskInput();
   };
 
+  const toggleAllTasksDone = () => {
+    console.log("Odchaczam zadania!");
+  }
+
   const toggleDoneTask = (taskIndex) => {
     tasks = [
       ...tasks.slice(0, taskIndex),
@@ -81,7 +87,7 @@
   };
 
 
-  const swithButtons = () => {
+  const switchButtons = () => {
     buttons.forEach((button) => {
       if (button.class === "js-hide") {
         button.active = !button.active;
@@ -91,10 +97,6 @@
     });
 
     console.log("Zamieniam buttona!");
-  };
-
-  const toggleTasks = () => {
-    console.log("Ukończylem wszystkie zdania!");
   };
 
   const showTasks = () => {
@@ -108,7 +110,7 @@
       if (button.active) {
         const buttonTask = document.querySelector(`.${button.class}`);
         buttonTask.addEventListener("click", () => {
-          button.class !== "js-toggle" && swithButtons();
+          button.class !== "js-toggle" && switchButtons();
           render();
         });
       }
