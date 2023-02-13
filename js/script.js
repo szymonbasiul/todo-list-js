@@ -2,7 +2,7 @@
   let tasks = [];
 
   let hideDoneTasks = true;
-  // let showAllTasks = false;
+  let showAllTasks = true;
   // let toggleAllTasks = false;
 
   let buttons = [
@@ -54,7 +54,7 @@
 
   const toggleAllTasksDone = () => {
     console.log("Odchaczam zadania!");
-  }
+  };
 
   const toggleDoneTask = (taskIndex) => {
     tasks = [
@@ -65,6 +65,7 @@
       },
       ...tasks.slice(taskIndex + 1),
     ];
+
     render();
   };
 
@@ -84,8 +85,8 @@
         toggleDoneTask(index);
       });
     });
+    console.log(tasks);
   };
-
 
   const switchButtons = () => {
     buttons.forEach((button) => {
@@ -95,26 +96,50 @@
         button.active = !button.active;
       }
     });
-
     console.log("Zamieniam buttona!");
+  };
+
+  const hideTasks = () => {
+    const hideDoneTasks = document.querySelector(".js-toggle");
+
+    console.log("Hiduje!");
   };
 
   const showTasks = () => {
     console.log("Pokazałem wszystkie zadania!");
   };
 
+  const toggleTasksDone = () => {
+    tasks.map((task) => {
+      task.done = true;
+    });
+    console.log("Toggle ;D");
+  };
+
   // TESTOWE FUNKCJE
 
   const bindButtonsEvents = () => {
-    for (const button of buttons) {
-      if (button.active) {
-        const buttonTask = document.querySelector(`.${button.class}`);
-        buttonTask.addEventListener("click", () => {
-          button.class !== "js-toggle" && switchButtons();
-          render();
-        });
+    if (tasks.length > 0) {
+      for (const button of buttons) {
+        if (button.active) {
+          const buttonTask = document.querySelector(`.${button.class}`);
+          buttonTask.addEventListener("click", () => {
+            button.class !== "js-toggle" && switchButtons();
+            render();
+          });
+        }
       }
+
+      const toggleAllTasksDone = document.querySelector(`.js-toggle`);
+      toggleAllTasksDone.addEventListener("click", () => {
+        toggleTasksDone();
+        render();
+      });
     }
+
+    // ukryj wszystkie skonczone
+
+    // pokaz wszystkie ukonczone
   };
 
   const renderTasks = () => {
@@ -141,19 +166,21 @@
   };
 
   const renderButtons = () => {
-    let htmlString = "";
+    if (tasks.length > 0) {
+      let htmlString = "";
 
-    for (const button of buttons) {
-      if (button.active) {
-        htmlString += `
-        <div class="button__itemRow ">
-        <button class="button ${button.class}"> ${button.content} </button>
-        </div>
-        `;
+      for (const button of buttons) {
+        if (button.active) {
+          htmlString += `
+          <div class="button__itemRow ">
+          <button class="button ${button.class}"> ${button.content} </button>
+          </div>
+          `;
+        }
       }
-    }
 
-    document.querySelector(".js-buttons").innerHTML = htmlString;
+      document.querySelector(".js-buttons").innerHTML = htmlString;
+    }
   };
 
   const render = () => {
