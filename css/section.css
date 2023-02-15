@@ -37,6 +37,10 @@
     color: rgb(16, 153, 153);
 }
 
+.button:disabled {
+    color: #666666;
+}
+
 @media (max-width: 768px) {
     .section__header {
         flex-direction: column;

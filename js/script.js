@@ -1,9 +1,7 @@
 {
   let tasks = [];
 
-  let hideDoneTasks = true;
-  let showAllTasks = true;
-  // let toggleAllTasks = false;
+  let hideDoneTasks = false;
 
   let buttons = [
     {
@@ -20,6 +18,7 @@
       content: "Ukończ wszystkie",
       active: true,
       class: "js-toggle",
+      disabled: "",
     },
   ];
 
@@ -50,10 +49,6 @@
 
     addNewTask(newTaskContent);
     focusOnAddTaskInput();
-  };
-
-  const toggleAllTasksDone = () => {
-    console.log("Odchaczam zadania!");
   };
 
   const toggleDoneTask = (taskIndex) => {
@@ -96,24 +91,28 @@
         button.active = !button.active;
       }
     });
-    console.log("Zamieniam buttona!");
-  };
-
-  const hideTasks = () => {
-    const hideDoneTasks = document.querySelector(".js-toggle");
-
-    console.log("Hiduje!");
   };
 
   const showTasks = () => {
     console.log("Pokazałem wszystkie zadania!");
   };
 
-  const toggleTasksDone = () => {
+  const hideTasks = () => {
+    console.log("Ukryłem to!");
+  };
+
+  const disableToggleButton = () => {
+    buttons.forEach((button) => {
+      if (button.class === "js-toggle") {
+        button.disabled = "disabled";
+      }
+    })
+  };
+
+  const toggleAllTasksDone = () => {
     tasks.map((task) => {
       task.done = true;
     });
-    console.log("Toggle ;D");
   };
 
   // TESTOWE FUNKCJE
@@ -130,9 +129,10 @@
         }
       }
 
-      const toggleAllTasksDone = document.querySelector(`.js-toggle`);
-      toggleAllTasksDone.addEventListener("click", () => {
-        toggleTasksDone();
+      const toggleAllTasksDoneButton = document.querySelector(`.js-toggle`);
+      toggleAllTasksDoneButton.addEventListener("click", () => {
+        toggleAllTasksDone();
+        disableToggleButton();
         render();
       });
     }
@@ -172,8 +172,8 @@
       for (const button of buttons) {
         if (button.active) {
           htmlString += `
-          <div class="button__itemRow ">
-          <button class="button ${button.class}"> ${button.content} </button>
+          <div class="button__itemRow">
+          <button class="button ${button.class}" ${button.disabled}> ${button.content} </button>
           </div>
           `;
         }
