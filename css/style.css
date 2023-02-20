@@ -1,6 +1,5 @@
 html {
     box-sizing: border-box;
-    line-height: 1.15;
 }
 
 *, ::after, ::before {
@@ -8,6 +7,7 @@ html {
 }
 
 .body {
+    line-height: 1.15;
     word-break: break-word;
     font-family: 'Lato', sans-serif;
     background-color: rgba(128, 128, 128, 0.25);

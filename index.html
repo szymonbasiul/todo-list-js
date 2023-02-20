@@ -1,44 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TODO LIST</title>
-    <meta property="og:image" content="images/to_do_list.png">
-    <link rel="icon" href="./images/check_mark.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/section.css">
-    <link rel="stylesheet" href="css/container.css">
+    <meta property="og:image" content="images/to_do_list.png" />
+    <link rel="icon" href="./images/check_mark.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/section.css" />
+    <link rel="stylesheet" href="css/container.css" />
     <script src="js/script.js" defer></script>
-</head>
+  </head>
 
-<body class="body">
+  <body class="body">
     <div class="container">
+      <h1 class="header">Lista zadań</h1>
 
-        <h1 class="header">Lista zadań</h1>
+      <section class="section">
+        <h2 class="section__header">Dodaj nowe zadanie</h2>
+        <form class="form__input js-form">
+          <input
+            class="newTask js-newTask"
+            placeholder="Co jest do zrobienia?"
+          />
+          <button class="newTaskButton js-newTaskButton">Dodaj zadanie</button>
+        </form>
+      </section>
+      <section class="section">
+        <h2 class="section__header">
+          Lista zadań
+          <div class="buttons js-buttons"></div>
+        </h2>
 
-        <section class="section">
-            <h2 class="section__header">Dodaj nowe zadanie</h2>
-            <form class="form__input js-form">
-                <input class="newTask js-newTask" placeholder="Co jest do zrobienia?">
-                <button class="newTaskButton js-newTaskButton">Dodaj zadanie</button>
-            </form>
-        </section>
-        <section class="section">
-                <h2 class="section__header">
-                    Lista zadań
-                    <div class="section__buttons js-buttons"></div>
-                </h2>
-                
-            <ul class="list__item js-tasks"></ul>
-        </section>
-
+        <ul class="list__item js-tasks"></ul>
+      </section>
     </div>
-</body>
-
+  </body>
 </html>
