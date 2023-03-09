@@ -68,7 +68,7 @@
     padding: 20px;
 }
 
-.newTask {
+.input__task {
     width: 100%;
     margin: 0 10px;
     border: 1px solid rgba(128, 128, 128, 0.25);
@@ -76,7 +76,7 @@
 
 }
 
-.newTaskButton {
+.input__taskButton {
     cursor: pointer;
     margin: 0 10px;
     width: 200px;
@@ -87,12 +87,12 @@
     transition: 0.5s;
 }
 
-.newTaskButton:hover {
+.input__taskButton:hover {
     background-color: rgb(16, 153, 153);
     transform: scale(1.1);
 }
 
-.newTaskButton:active {
+.input__taskButton:active {
     background-color: rgb(16, 153, 153);
     transform: translateY(2px);
 }
@@ -198,12 +198,12 @@
         flex-wrap: wrap;
     }
 
-    .newTask {
+    .input__task {
         margin-bottom: 20px;
         flex-basis: 100%;
     }
 
-    .newTaskButton {
+    .input__taskButton {
         flex-basis: 100%;
     }
 }
